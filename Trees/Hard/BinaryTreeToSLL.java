@@ -1,22 +1,13 @@
-class Solution{
-  Node head = null;
-  Node prev = null;
+class Solution {
+    TreeNode prev = null;
+    public void flatten(TreeNode root) {
+        if(root == null) return;
 
-public Node bToSLL(Node root){
-  if(root == null) return null;
+        flatten(root.right);
+        flatten(root.left);
 
-  bToSLL(root.left);
-
-  if(prev == null){
-    head = root;
-  } else {
-    prev.next = root;
-  }
-
-  prev = root;
-
-  bToSLL(root.right);
-
-  return head;
-}
+        root.right = prev;
+        root.left = null;
+        prev= root;
+    }
 }
