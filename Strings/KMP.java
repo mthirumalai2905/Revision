@@ -1,4 +1,5 @@
 public class KMPAlgorithm {
+    
     public static int[] computeLPS(String pattern) {
         int n = pattern.length();
         int[] lps = new int[n];
