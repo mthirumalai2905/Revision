@@ -1,4 +1,5 @@
 // LeetCode - 370 (Range  Addition)
+
 class Solution {
    public int[] getModifiedArray(int n, int[][] updates){
        int[] diff = new int[n];
