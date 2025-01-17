@@ -1,3 +1,4 @@
+
 class Solution{
    public static int reverseBits(int n){
      int result = 0;
