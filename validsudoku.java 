@@ -1,0 +1,31 @@
+import java.util.HashSet;
+
+public class Solution {
+    public boolean isValidSudoku(char[][] board) {
+        // HashSet to track the numbers seen in rows, columns, and sub-grids
+        for (int i = 0; i < 9; i++) {
+            HashSet<Character> rowSet = new HashSet<>();
+            HashSet<Character> colSet = new HashSet<>();
+            HashSet<Character> subGridSet = new HashSet<>();
+
+            for (int j = 0; j < 9; j++) {
+                // Check the row
+                if (board[i][j] != '.' && !rowSet.add(board[i][j])) {
+                    return false; // Duplicate in row
+                }
+                // Check the column
+                if (board[j][i] != '.' && !colSet.add(board[j][i])) {
+                    return false; // Duplicate in column
+                }
+                // Check the 3x3 sub-grid
+                int subGridRow = 3 * (i / 3) + j / 3;
+                int subGridCol = 3 * (i % 3) + j % 3;
+                if (board[subGridRow][subGridCol] != '.' && !subGridSet.add(board[subGridRow][subGridCol])) {
+                    return false; // Duplicate in sub-grid
+                }
+            }
+        }
+        return true; // If no duplicates were found, return true
+    }
+}
+
