@@ -15,6 +15,7 @@ class Solution {
         int maxS = 0;
         int j = 0;
         
+        
         for(int i = 0; i < n; i++){
             maxR = Math.max(maxR, i + arr[i]);
             
